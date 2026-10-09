@@ -1,13 +1,17 @@
+
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 import tailwindcss from '@tailwindcss/vite'
 
 // https://vite.dev/config/
 export default defineConfig({
+  base: '/Lost-and-Found-Frontend-',
+
   plugins: [
     react(),
     tailwindcss(),
   ],
+
   server: {
     port: 5173,
     proxy: {
@@ -18,7 +22,8 @@ export default defineConfig({
       '/uploads': {
         target: 'http://localhost:8080',
         changeOrigin: true,
-      }
-    }
-  }
+      },
+    },
+  },
 })
+
